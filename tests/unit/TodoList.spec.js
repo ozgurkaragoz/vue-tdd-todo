@@ -1,6 +1,6 @@
 import {mount, shallowMount} from '@vue/test-utils'
-import TodoList from '@/components/TodoList.vue'
 import TodoItem from "../../src/components/TodoItem";
+import TodoList from "../../src/components/TodoList";
 
 describe('TodoList.vue', () => {
     it('should render component', () => {
