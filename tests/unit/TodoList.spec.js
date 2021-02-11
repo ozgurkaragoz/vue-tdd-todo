@@ -1,5 +1,6 @@
-import { shallowMount } from '@vue/test-utils'
+import {mount, shallowMount} from '@vue/test-utils'
 import TodoList from '@/components/TodoList.vue'
+import TodoItem from "../../src/components/TodoItem";
 
 describe('TodoList.vue', () => {
     it('should render component', () => {
@@ -28,11 +29,11 @@ describe('TodoList.vue', () => {
                 ]
             }
         })
-        expect(wrapper.findAll('#listGroup li').length).toBe(3)
+        expect(wrapper.findAllComponents(TodoItem).length).toBe(3)
     })
 
     it('should second item is equal to "Deneme 2"', () => {
-        const wrapper = shallowMount(TodoList, {
+        const wrapper = mount(TodoList, {
             propsData: {
                 items: [
                     {
@@ -47,6 +48,8 @@ describe('TodoList.vue', () => {
                 ]
             }
         })
-        expect(wrapper.findAll('#listGroup li').at(1).text()).toBe("Deneme 2")
+
+        // expect(wrapper.findAll('#listGroup li').at(1).text()).toBe("Deneme 2") - SAME
+        expect(wrapper.findAllComponents(TodoItem).at(1).find('div').text()).toBe("Deneme 2")
     })
 })
