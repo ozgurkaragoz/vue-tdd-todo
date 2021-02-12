@@ -20,6 +20,11 @@ yarn build
 yarn test:unit
 ```
 
+### Watch your unit tests
+```
+yarn test:unit:watch
+```
+
 ### Lints and fixes files
 ```
 yarn lint
